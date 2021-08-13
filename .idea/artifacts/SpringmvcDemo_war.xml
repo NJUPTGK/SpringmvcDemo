@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="SpringmvcDemo:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/SpringmvcDemo_war</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="SpringmvcDemo/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="SpringmvcDemo" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Spring-5.2.3.RELEASE" />
+          <element id="library" level="project" name="WebSocket-1.1" />
+          <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:4.0.0" />
+          <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.13" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

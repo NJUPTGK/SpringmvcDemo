@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+<!--    <listener>-->
+<!--        <listener-class>org.springframework</listener-class>-->
+<!--    </listener>-->
+    <servlet>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>com.tgk.springmvc.Servlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:spring-servlet.xml</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>/</url-pattern>
+        <!-- 什么都不加就可以打印出。。。但是jsp页面就显示不出来了
+          如果加了斜杠，jsp页面可以显示，但是。。。就打印不出来了
+          加了/* 可以打印出。。。 jsp页面就被拦截了 /*的作用就是用于拦截符合“/”的请求-->
+    </servlet-mapping>
+
+</web-app>
