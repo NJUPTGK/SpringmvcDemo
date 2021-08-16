@@ -17,9 +17,6 @@
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
-        <!-- 什么都不加就可以打印出。。。但是jsp页面就显示不出来了
-          如果加了斜杠，jsp页面可以显示，但是。。。就打印不出来了
-          加了/* 可以打印出。。。 jsp页面就被拦截了 /*的作用就是用于拦截符合“/”的请求-->
     </servlet-mapping>
 
 </web-app>

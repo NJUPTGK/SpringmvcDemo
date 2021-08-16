@@ -18,8 +18,9 @@ public class BeanIdHandlerMapping implements HandlerMapping {
 
     @Override
     public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
-        if (beanName.startsWith("/")){
+        if (beanName.startsWith("/")){//在Spring-servlet-xml里配置
             map.put(beanName,bean);
+            System.out.println(map.values());//会打印com.tgk.springmvc.Controller.HelloController
         }
         return false;
     }

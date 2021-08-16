@@ -29,16 +29,21 @@ public class Servlet extends HttpServlet {
         //映射器   维护url和处理器的路由关系
         //
         Object handler = getHandlerMapping(req);
+        System.out.println(handler+"+打印handler");
         //使用适配器模式
         HandlerAdapter adapter = getHandlerAdapter(handler);//这里有bug,已经改好了
+        System.out.println(adapter+"+打印adapter");
         Object result = null;
         try {
             result = adapter.handle(req, resp, handler);
+            //抛java.lang.NullPointerException异常的话是因为
+            // 当浏览器访问http://localhost:8080/test时，浏览器会抛出两次请求，第二次请求时，服务器会抛异常，这应该是正常的
+            System.out.println(result+"+打印result");
         } catch (Exception e) {
             e.printStackTrace();
         }
         PrintWriter p = resp.getWriter();
-        p.println(result);
+        p.println(result);//如果不加这两句话，网页上就什么都没有，不会在网页上打印test
 
     }
 
@@ -65,6 +70,7 @@ public class Servlet extends HttpServlet {
 
     private HandlerAdapter getHandlerAdapter(Object handle){
         if (handlerAdapter!=null){
+            System.out.println(handlerAdapter+"+打印handlerAdapter");
             for(HandlerAdapter adapter:handlerAdapter){
                 boolean flag = adapter.support(handle);
                 if (flag){
