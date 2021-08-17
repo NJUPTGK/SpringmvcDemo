@@ -20,23 +20,23 @@ public class AnnHandlerAdapter implements HandlerAdapter{
     @Override
     public Object handle(HttpServletRequest req, HttpServletResponse resp, Object handler) throws Exception {
         Map<String, String[]> parameterMap = req.getParameterMap();//获取request请求携带的参数
-        System.out.println(parameterMap.values());
+        //System.out.println(parameterMap.values());
         RequestMappingInfo requestMappingInfo = (RequestMappingInfo) handler;
-        System.out.println(requestMappingInfo);
+        //System.out.println(requestMappingInfo);
         Method method = requestMappingInfo.getMethod();//获取方法
-        System.out.println(method);
+        //System.out.println(method);
         Parameter[] parameters = method.getParameters();//获取方法的参数列表
-        for (int i = 0; i < parameters.length; i++) {
-            System.out.println(parameters[i]);
-        }
+//        for (int i = 0; i < parameters.length; i++) {
+//            System.out.println(parameters[i]);
+//        }
         Object[] paramValue = new Object[parameters.length];
         for (int i=0;i<parameters.length;i++){//parameterMap和parameters进行匹配
             for (Map.Entry<String,String[]> ebtry : parameterMap.entrySet()){
                     if (ebtry.getKey().equals(parameters[i].getAnnotation(RequestParam.class).value())){
-                        paramValue[i] = ebtry.getValue()[0];//拿到request请求传过来的参数的值，赋值给paramValue
+                        paramValue[i] = ebtry.getValue()[0];//拿到request请求传过来的参数的值，赋值给paramValue,如果没有传值的话，paramValue的值就是空的
                     }
             }
         }
-        return method.invoke(requestMappingInfo.getObj(),paramValue);//用反射去执行方法
+        return method.invoke(requestMappingInfo.getObj(),paramValue);//用反射去执行方法，然后把paramValue也就是参数的值传进去
     }
 }
