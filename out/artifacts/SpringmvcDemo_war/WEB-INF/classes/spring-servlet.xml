@@ -15,6 +15,6 @@
 
     <context:component-scan base-package="com.tgk"/>
 
-            <bean id="/HelloController" class="com.tgk.springmvc.Controller.HelloController"/>
-
+<!--    <bean id="/HelloController" class="com.tgk.springmvc.Controller.HelloController"/>-->
+    <bean id="/helloServlet" class="com.tgk.springmvc.Controller.HelloServlet"/>
 </beans>

@@ -8,7 +8,7 @@
 <!--    </listener>-->
     <servlet>
         <servlet-name>dispatcher</servlet-name>
-        <servlet-class>com.tgk.springmvc.Servlet</servlet-class>
+        <servlet-class>com.tgk.springmvc.Servlet</servlet-class><!-- 相当于把servlet实例交给servlet容器管理了-->
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>classpath:spring-servlet.xml</param-value>
@@ -16,7 +16,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/</url-pattern><!--  默认所有的请求都要进入com.tgk.springmvc.Servlet中进行处理-->
     </servlet-mapping>
 
 </web-app>
