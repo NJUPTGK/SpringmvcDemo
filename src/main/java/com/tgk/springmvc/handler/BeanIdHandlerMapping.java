@@ -38,4 +38,5 @@ public class BeanIdHandlerMapping implements HandlerMapping {
 //InstantiationAwareBeanPostProcessor代表了Spring的另外一段生命周期：实例化。先区别一下Spring Bean的实例化和初始化两个阶段的主要作用：
 //(1)、实例化----实例化的过程是一个创建Bean的过程，即调用Bean的构造函数，单例的Bean放入单例池中
 //(2)、初始化----初始化的过程是一个赋值的过程，即调用Bean的setter，设置Bean的属性
+//先实例化再初始化
 //BeanPostProcessor作用于过程（2）前后，现在的InstantiationAwareBeanPostProcessor则作用于过程（1）前后；
