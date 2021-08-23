@@ -29,7 +29,7 @@ public class Servlet extends HttpServlet {
         //映射器   维护url和处理器的路由关系
         System.out.println("进入doget方法");
         Object handler = getHandlerMapping(req);
-        System.out.println(handler+"+打印handler");
+        System.out.println(handler+"+打印handler");//有可能会打印出HelloServlet或者RequestMappingInfo，具体的逻辑在AnnHandlerMapping和BeanIdHandlerMapping里
         //使用适配器模式
         HandlerAdapter adapter = getHandlerAdapter(handler);//这里有bug,已经改好了
         System.out.println(adapter+"+打印adapter");
@@ -73,7 +73,6 @@ public class Servlet extends HttpServlet {
                 }
                 return handler;
             }
-
         }
         return null;
     }
